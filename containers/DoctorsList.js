@@ -19,8 +19,7 @@ class DoctorsList extends Component {
       flexWrap: "wrap",
       width: "7em",
       height: "auto",
-      padding: "5px 5px",
-      margin: "10px 10px"
+      margin: "10px 20px"
     };
     const titleText = {
       fontWeight: 'bold'
