@@ -4,9 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack --w --progress --colors",
-    "server": "nodemon ./server/index.js"
+    "start": "node server/index.js"
   },
   "author": "SJL",
   "license": "ISC",
