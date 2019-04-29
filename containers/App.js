@@ -3,7 +3,7 @@ import DoctorsList from "./DoctorsList";
 import DoctorProfile from "./DoctorProfile";
 
 const resource_url =
-  "https://api.betterdoctor.com/2016-03-01/doctors?location=ca-berkeley&user_location=37.773%2C-122.413&skip=0&limit=20&user_key=1540b0816889c1455a1ddb998fe7801f"
+  "https://api.betterdoctor.com/2016-03-01/doctors?location=ca&user_location=37.773%2C-122.413&skip=0&limit=50&user_key=1540b0816889c1455a1ddb998fe7801f"
 export default class App extends Component {
   constructor() {
 		super();

@@ -19,7 +19,8 @@ class DoctorsList extends Component {
       flexWrap: "wrap",
       width: "7.5em",
       height: "auto",
-      padding: "5px 5px"
+      padding: "5px 5px",
+      margin: "10px 10px"
     };
     return (
       <div style={containerStyle}>
