@@ -17,10 +17,13 @@ class DoctorsList extends Component {
       display: "inline-flex",
       flexDirection: "column",
       flexWrap: "wrap",
-      width: "7.5em",
+      width: "7em",
       height: "auto",
       padding: "5px 5px",
       margin: "10px 10px"
+    };
+    const titleText = {
+      fontWeight: 'bold'
     };
     return (
       <div style={containerStyle}>
@@ -35,15 +38,13 @@ class DoctorsList extends Component {
               <br />
               <div>
               Doctor name:
-              <br />
-              {` ${doctor.profile.first_name} ${doctor.profile.last_name}`}
-              <br />
+              <p style={titleText}>{` ${doctor.profile.first_name} ${doctor.profile.last_name} ${doctor.profile.title}`}</p>
               </div>
               <div>
                 Specialty:
                 {doctor.specialties.map((specialty, i) => {
                   return (
-                    <div key={i}>
+                    <div key={i} style={titleText}>
                       <span>{specialty.name}</span>
                       <br />
                     </div>

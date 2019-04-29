@@ -21,8 +21,11 @@ class SimilarDoctors extends Component {
           filteredDoctors.map((doctor, i, collection) => (
             <div key={i}>
               <img src={doctor.profile.image_url} />
+              <br />
               {doctor.profile.first_name} {doctor.profile.last_name}{" "}
               {doctor.profile.title}
+              <br />
+              <br />
             </div>
           ))
         ) : (
