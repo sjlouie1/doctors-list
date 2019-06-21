@@ -1,0 +1,76 @@
+body {
+  /* background: url(https://sjl-portfolio-images.s3-us-west-1.amazonaws.com/doc-dashboard/61802.jpg); */
+  background: #dfdfdf;
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+.main {
+  display: flex;
+}
+
+.titleText {
+  font-weight: bold;
+}
+
+.doctor-photo:hover {
+  cursor: pointer;
+}
+
+/* SIDE MENU */
+.menu {
+  width: 20%;
+  height: 100vw;
+  background-color: #4da6cc;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  border-radius: 5px 5px 0 0;
+  color: white;
+}
+.categories {
+  display: block;
+}
+
+.category {
+  padding: 1rem 0.5rem;
+}
+#selected {
+  border: 3px solid black;
+}
+
+/* DOCTORS LIST */
+.list-container {
+  height: auto;
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 2rem;
+}
+
+.doctor-card {
+  display: inline-flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 7em;
+  height: auto;
+  margin: 10px 10px;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 7px 7px 0 0;
+  padding: 0 3rem;
+  font-size: .8rem;
+
+}
+
+/* DOCTOR PROFILE */
+
+.backButton {
+  background-color: #e91e63;
+  color: white;
+  border: 2px solid #e91e63;
+  border-radius: 5px;
+  padding: 10px;
+}

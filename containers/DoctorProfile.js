@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import SimilarDoctors from "./SimilarDoctors";
+import '../dist/style.css';
 
 class DoctorProfile extends Component {
   constructor(props) {
@@ -7,22 +8,12 @@ class DoctorProfile extends Component {
   }
 
   render() {
-    const titleText = {
-      fontWeight: 'bold'
-    };
-    const backButton = {
-      backgroundColor: '#e91e63',
-      color: 'white',
-      border: '2px solid #e91e63',
-      borderRadius: '5px',
-      padding: '10px'
-
-    };
+  
     return (
       <div>
         {<img src={this.props.selectedDoctor.profile.image_url} />}
         <br />
-        <div style={titleText}>
+        <div className="titleText">
         {this.props.selectedDoctor.profile.first_name}{" "}
         {this.props.selectedDoctor.profile.last_name}{" "}
         {this.props.selectedDoctor.profile.title}
@@ -33,7 +24,7 @@ class DoctorProfile extends Component {
         {this.props.selectedDoctor.specialties.map((specialty, i) => {
           return (
             <div key={i}>
-              <span style={titleText}>{specialty.name}</span>
+              <span className="titleText">{specialty.name}</span>
               <br />
             </div>
           );
@@ -43,7 +34,7 @@ class DoctorProfile extends Component {
         Doctors with similar specialties:
         <SimilarDoctors doctors={this.props.doctors} selectedDoctor={this.props.selectedDoctor}/>
         <br />
-        <button style={backButton} onClick={this.props.homePage}>BACK TO LIST</button>
+        <button className="backButton" onClick={this.props.homePage}>BACK TO LIST</button>
       </div>
     );
   }
