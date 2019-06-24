@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "../dist/style.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 class DoctorsList extends Component {
   constructor(props) {
@@ -7,33 +8,35 @@ class DoctorsList extends Component {
   }
 
   render() {
-
-
     return (
       <div className="list-container">
         {this.props.doctors.map((doctor, i) => {
           if (
-            (!doctor.profile.image_url.includes("general_doctor_male")) &&
-            (!doctor.profile.image_url.includes("general_doctor_female"))
+            !doctor.profile.image_url.includes("general_doctor_male") &&
+            !doctor.profile.image_url.includes("general_doctor_female")
           ) {
             return (
-              <div key={i} className="doctor-card">
-                <br />
-                <img
-                  className="doctor-photo"
-                  src={doctor.profile.image_url}
-                  onClick={() => this.props.selectDoctor(i)}
-                />
+              <div
+                key={i}
+                className="doctor-card"
+                onClick={() => this.props.selectDoctor(i)}
+              >
                 <br />
                 <div>
-                  Doctor name:
+                  <img
+                    className="doctor-photo"
+                    src={doctor.profile.image_url}
+                  />
+                </div>
+                <br />
+                <div className="doc-description">
                   <p className="titleText">{` ${doctor.profile.first_name} ${
                     doctor.profile.last_name
                   } ${doctor.profile.title}`}</p>
                 </div>
+                <br />
                 <div>
-                <i class="fas fa-briefcase-medical"></i>
-                  Specialty:
+                  <FontAwesomeIcon icon={"briefcase-medical"} />
                   {doctor.specialties.map((specialty, i) => {
                     return (
                       <div key={i} className="titleText">

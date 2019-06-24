@@ -15,8 +15,9 @@ body {
   font-weight: bold;
 }
 
-.doctor-photo:hover {
-  cursor: pointer;
+.loader{
+  left:50%;
+  top: 50%;
 }
 
 /* SIDE MENU */
@@ -55,16 +56,31 @@ body {
   flex-direction: column;
   flex-wrap: wrap;
   width: 7em;
-  height: auto;
+  height: 18rem;
   margin: 10px 10px;
   background-color: white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  border-radius: 7px 7px 0 0;
+  border-radius: 7px;
   padding: 0 3rem;
-  font-size: .8rem;
-
+  font-size: .75rem;
 }
 
+.doctor-card:hover {
+  cursor: pointer;
+}
+.titleText{
+  display: inline;
+  text-align: center;
+}
+
+.doctor-photo{
+  border-radius: 50%;
+  height: 7rem;
+}
+
+.doc-description{
+  
+}
 /* DOCTOR PROFILE */
 
 .backButton {

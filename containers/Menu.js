@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import '../dist/style.css';
-
+import "../dist/style.css";
 
 const Menu = () => {
   const categories = [
@@ -21,8 +20,16 @@ const Menu = () => {
         <p>online</p>
       </div>
       <div className="categories">
-        {categories.map(category => {
-           return category === "Doctor Search" ? <div className="category" id="selected">{category}</div>:<div className="category">{category}</div>;
+        {categories.map((category, i) => {
+          return category === "Doctor Search" ? (
+            <div className="category" id="selected" key={"sidebar-" + i}>
+              {category}
+            </div>
+          ) : (
+            <div className="category" key={"sidebar-" + i}>
+              {category}{" "}
+            </div>
+          );
         })}
       </div>
     </div>

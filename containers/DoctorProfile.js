@@ -7,10 +7,12 @@ class DoctorProfile extends Component {
     super(props);
   }
 
+  showHideClassName = this.props.show ? "modal display-block" : "modal display-none";
+
   render() {
-  
+
     return (
-      <div>
+      <div className={this.showHideClassName}>
         {<img src={this.props.selectedDoctor.profile.image_url} />}
         <br />
         <div className="titleText">
@@ -34,7 +36,7 @@ class DoctorProfile extends Component {
         Doctors with similar specialties:
         <SimilarDoctors doctors={this.props.doctors} selectedDoctor={this.props.selectedDoctor}/>
         <br />
-        <button className="backButton" onClick={this.props.homePage}>BACK TO LIST</button>
+        <button className="backButton" onClick={handleClose}>BACK TO LIST</button>
       </div>
     );
   }
