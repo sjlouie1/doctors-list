@@ -14,24 +14,40 @@ export default class App extends Component {
 
     this.state = {
       view: "homepage",
-      show: false,
+      open: false,
       doctors: [],
       doctor: {},
       isLoading: false
     };
   }
 
-  showModal = index => {
+  onOpenModal = index => {
     const selectedDoctor = this.state.doctors[index];
-    this.setState({
-      doctor: selectedDoctor,
-      show: true
-    });
+    this.setState(
+      {
+        doctor: selectedDoctor,
+        open: true
+      },
+      () => console.log(this.state.open, "OPEN?")
+    );
   };
 
-  hideModal = () => {
-    this.setState({ show: false });
+  onCloseModal = () => {
+    this.setState({ open: false });
   };
+
+  // showModal = index => {
+  //   const selectedDoctor = this.state.doctors[index];
+  //   this.setState({
+  //     doctor: selectedDoctor,
+  //     show: true
+  //   });
+  // };
+
+  // hideModal = () => {
+  //   console.log('HELLO???')
+  //   this.setState({ show: false });
+  // };
 
   // selectDoctor = index => {
   //   const selectedDoctor = this.state.doctors[index];
@@ -46,12 +62,19 @@ export default class App extends Component {
   };
 
   componentDidMount() {
+    console.log("hello");
     this.setState({ isLoading: true });
     fetch(resource_url)
       .then(data => data.json())
       .then(data => {
-        this.setState({ doctors: data.data, isLoading: false });
-        console.log(data);
+        const filtered = data.data.filter(
+          doc =>
+            !doc.profile.image_url.includes("general_doctor_male") &&
+            !doc.profile.image_url.includes("general_doctor_female")
+        );
+        this.setState({ doctors: filtered, isLoading: false }, () =>
+          console.log(filtered)
+        );
       })
       .catch(err => console.log(err));
   }
@@ -67,27 +90,20 @@ export default class App extends Component {
             loading={this.state.isLoading}
           />
           {/* only renders Loading component if isLoading is true */}
-          {!this.state.isLoading && (
+          {!this.state.isLoading && this.state.doctors.length > 0 && (
             <div className="main">
               {/*className main will only load if isLoading is false */}
               <Menu />
               <DoctorsList
                 doctors={this.state.doctors}
-                selectDoctor={this.showModal}
+                onClick={this.onOpenModal}
+                open={this.state.open}
+                onClose={this.onCloseModal}
+                selectedDoctor={this.state.doctor}
               />
             </div>
           )}
         </div>
-        {/* <Modal show={this.state.show} handleClose={this.hideModal}> */}
-        <DoctorProfile
-          show={this.state.show}
-          handleClose={this.hideModal}
-          doctors={this.state.doctors}
-          selectedDoctor={this.state.doctor}
-          homePage={this.homePage}
-          show={this.state.show}
-        />
-        {/* </Modal> */}
 
         {/* ) */}
       </div>

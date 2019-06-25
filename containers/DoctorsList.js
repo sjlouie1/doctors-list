@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "../dist/style.css";
+import DoctorProfile from "./DoctorProfile";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 class DoctorsList extends Component {
@@ -11,15 +12,12 @@ class DoctorsList extends Component {
     return (
       <div className="list-container">
         {this.props.doctors.map((doctor, i) => {
-          if (
-            !doctor.profile.image_url.includes("general_doctor_male") &&
-            !doctor.profile.image_url.includes("general_doctor_female")
-          ) {
             return (
               <div
                 key={i}
                 className="doctor-card"
-                onClick={() => this.props.selectDoctor(i)}
+                // onClick={() => this.props.selectDoctor(i)}
+                 onClick={() => this.props.onClick(i)}
               >
                 <br />
                 <div>
@@ -47,9 +45,15 @@ class DoctorsList extends Component {
                   })}
                 </div>
                 <br />
+                {this.props.open && <DoctorProfile
+                  open={this.props.open}
+                  onClose={this.props.onClose}
+                  doctors={this.props.doctors}
+                  selectedDoctor={this.props.selectedDoctor}
+                  // homePage={this.homePage}
+                />}
               </div>
             );
-          }
         })}
       </div>
     );

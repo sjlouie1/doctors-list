@@ -81,7 +81,7 @@ body {
 .doc-description{
   
 }
-/* DOCTOR PROFILE */
+/* DOCTOR PROFILE MODAL*/
 
 .backButton {
   background-color: #e91e63;
@@ -90,3 +90,4 @@ body {
   border-radius: 5px;
   padding: 10px;
 }
+
