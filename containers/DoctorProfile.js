@@ -9,10 +9,10 @@ class DoctorProfile extends Component {
   }
 
   render() {
-    console.log(this.props.open, "OPEN from doctorprofile")
+    console.log(this.props.selectedDoctor)
     return (
-      <div>
-        <Modal open={this.props.open} onClose={this.props.onClose} center>
+      <div className="modal-main">
+        <Modal open={this.props.open} onClose={this.props.onClose} animationDuration={500} closeOnOverlayClick={true} center>
           <img src={this.props.selectedDoctor.profile.image_url} />
           <br />
           <div className="titleText">
@@ -38,7 +38,7 @@ class DoctorProfile extends Component {
             selectedDoctor={this.props.selectedDoctor}
           />
           <br />
-          <button className="backButton" onClick={this.props.handleClose}>
+          <button className="backButton" onClick={this.props.onClose}>
             BACK TO LIST
           </button>
         </Modal>

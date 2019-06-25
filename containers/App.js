@@ -28,34 +28,13 @@ export default class App extends Component {
         doctor: selectedDoctor,
         open: true
       },
-      () => console.log(this.state.open, "OPEN?")
+      () => console.log(this.state.open, " STATE ON OPEN")
     );
   };
 
   onCloseModal = () => {
-    this.setState({ open: false });
+    this.setState({ open: false }, () => console.log(this.state.open, "STATE ON CLOSE"));
   };
-
-  // showModal = index => {
-  //   const selectedDoctor = this.state.doctors[index];
-  //   this.setState({
-  //     doctor: selectedDoctor,
-  //     show: true
-  //   });
-  // };
-
-  // hideModal = () => {
-  //   console.log('HELLO???')
-  //   this.setState({ show: false });
-  // };
-
-  // selectDoctor = index => {
-  //   const selectedDoctor = this.state.doctors[index];
-  //   this.setState({
-  //     doctor: selectedDoctor,
-  //     view: "doctorDetail"
-  //   });
-  // };
 
   homePage = () => {
     this.setState({ view: "homepage" });
@@ -80,6 +59,7 @@ export default class App extends Component {
   }
 
   render() {
+    console.log(this.state.doctor)
     return (
       <div>
         <div className="loader">
@@ -97,12 +77,19 @@ export default class App extends Component {
               <DoctorsList
                 doctors={this.state.doctors}
                 onClick={this.onOpenModal}
-                open={this.state.open}
+                // open={this.state.open}
                 onClose={this.onCloseModal}
-                selectedDoctor={this.state.doctor}
+                // selectedDoctor={this.state.doctor}
               />
             </div>
           )}
+          {this.state.open && <DoctorProfile
+                  open={this.state.open}
+                  onClose={this.onCloseModal}
+                  doctors={this.state.doctors}
+                  selectedDoctor={this.state.doctor}
+                  // homePage={this.homePage}
+                />}
         </div>
 
         {/* ) */}

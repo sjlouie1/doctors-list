@@ -9,6 +9,7 @@ class DoctorsList extends Component {
   }
 
   render() {
+    console.log(this.props.doctors)
     return (
       <div className="list-container">
         {this.props.doctors.map((doctor, i) => {
@@ -45,13 +46,13 @@ class DoctorsList extends Component {
                   })}
                 </div>
                 <br />
-                {this.props.open && <DoctorProfile
+                {/* <DoctorProfile
                   open={this.props.open}
                   onClose={this.props.onClose}
                   doctors={this.props.doctors}
                   selectedDoctor={this.props.selectedDoctor}
                   // homePage={this.homePage}
-                />}
+                /> */}
               </div>
             );
         })}

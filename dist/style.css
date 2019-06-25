@@ -91,3 +91,10 @@ body {
   padding: 10px;
 }
 
+.backButton:hover {
+  cursor: pointer; 
+}
+
+.styles_overlay__CLSq-{
+  background-color: rgba(0, 0, 0, 0.75) !important;
+}
