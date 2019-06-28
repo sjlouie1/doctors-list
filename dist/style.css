@@ -83,18 +83,41 @@ body {
 }
 /* DOCTOR PROFILE MODAL*/
 
-.backButton {
-  background-color: #e91e63;
-  color: white;
-  border: 2px solid #e91e63;
-  border-radius: 5px;
-  padding: 10px;
+.selected-doc-container{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 2rem;
 }
 
-.backButton:hover {
-  cursor: pointer; 
+.doc-profile-txt{
+  font-weight: bold;
+}
+
+.selected-doc-des{
+display: flex;
+align-items: center;
+flex-direction: column;
+}
+
+.doc-specialty{
+  display: block;
 }
 
 .styles_overlay__CLSq-{
   background-color: rgba(0, 0, 0, 0.75) !important;
+}
+
+.modal-info-container{
+  text-align: center;
+}
+
+/* SIMILAR DOCTORS LIST */
+.similar-docs-container{
+  display: flex;
+  flex-direction: row
+}
+
+.doc-img{
+  margin: 0 1rem;
 }
