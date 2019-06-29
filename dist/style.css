@@ -84,10 +84,14 @@ body {
 /* DOCTOR PROFILE MODAL*/
 
 .selected-doc-container{
-  display: flex;
   flex-direction: row;
   align-items: center;
   margin-bottom: 2rem;
+}
+
+.selected-doc-des-container{
+  display: flex;
+  justify-content: center;
 }
 
 .doc-profile-txt{
@@ -96,8 +100,8 @@ body {
 
 .selected-doc-des{
 display: flex;
-align-items: center;
 flex-direction: column;
+text-align: left;
 }
 
 .doc-specialty{

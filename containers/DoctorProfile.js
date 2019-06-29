@@ -25,21 +25,24 @@ class DoctorProfile extends Component {
                 src={this.props.selectedDoctor.profile.image_url}
                 className="doctor-photo"
               />
-              <div className="selected-doc-des">
-                <div className="doc-profile-txt">
-                  {this.props.selectedDoctor.profile.first_name}{" "}
-                  {this.props.selectedDoctor.profile.last_name}{" "}
-                  {this.props.selectedDoctor.profile.title}
-                </div>
-                <div className="doc-specialty">
-                  Specialties:
-                  {this.props.selectedDoctor.specialties.map((specialty, i) => {
-                    return (
-                      <div key={i}>
-                        <span className="titleText">{specialty.name}</span>
-                      </div>
-                    );
-                  })}
+              <div className="selected-doc-des-container">
+                <div className="selected-doc-des">
+                  <div className="doc-profile-txt">
+                    {this.props.selectedDoctor.profile.first_name}{" "}
+                    {this.props.selectedDoctor.profile.last_name}{" "}
+                    {this.props.selectedDoctor.profile.title}
+                  </div>
+                  <div className="doc-specialty">
+                    {this.props.selectedDoctor.specialties.map(
+                      (specialty, i) => {
+                        return (
+                          <div key={i}>
+                            <span className="titleText">{specialty.name}</span>
+                          </div>
+                        );
+                      }
+                    )}
+                  </div>
                 </div>
               </div>
             </div>
