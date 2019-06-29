@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import "../dist/style.css";
 import DoctorProfile from "./DoctorProfile";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -9,7 +8,7 @@ class DoctorsList extends Component {
   }
 
   render() {
-    console.log(this.props.doctors)
+    // console.log(this.props.doctors)
     return (
       <div className="list-container">
         {this.props.doctors.map((doctor, i) => {

@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import SimilarDoctors from "./SimilarDoctors";
-import "../dist/style.css";
 import Modal from "react-responsive-modal";
 
 class DoctorProfile extends Component {

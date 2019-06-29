@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import "../dist/style.css";
 
 const Menu = () => {
   const categories = [
