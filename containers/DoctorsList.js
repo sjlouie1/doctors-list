@@ -9,7 +9,7 @@ class DoctorsList extends Component {
   }
 
   render() {
-    console.log(this.props.doctors)
+    // console.log(this.props.doctors)
     return (
       <div className="list-container">
         {this.props.doctors.map((doctor, i) => {
