@@ -37,28 +37,30 @@ class App extends Component {
 
       console.log(this.state.search)
       const { search: { input, type, gender } } = this.state;
+
       if (input[0] && type === 'Name' && gender === 'Both') {
         copy = copy.filter(doc => doc.profile.first_name.toLowerCase().slice(0, input.length) === input.toLowerCase()
         );
       }
+
       if (input[0] && type === 'Name' && gender !== 'Both') {
         copy = copy.filter(doc => doc.profile.first_name.toLowerCase().slice(0, input.length) === input.toLowerCase() && doc.profile.gender.toLowerCase() === gender.toLowerCase()
         );
       }
-      // let b = a.filter(item => {
-      //   return item.spec.find( x => x.tar.slice(0,1) === 'a')
-      // });
+
       if (input[0] && type === 'Specialty' && gender === 'Both') {
         copy = copy.filter(doc => doc.specialties.find(specialty => specialty.name.toLowerCase().slice(0, input.length) === input.toLowerCase()
           )
         );
         console.log(copy)
       }
+
       if (input[0] && type === 'Specialty' && gender !== 'Both') {
         copy = copy.filter(doc => doc.specialties.find(specialty => specialty.name.toLowerCase().slice(0, input.length) === input.toLowerCase()
           ) && doc.profile.gender.toLowerCase() === gender.toLowerCase()
         );
       }
+
       if (input) {
         this.setState({
           doctors: copy
@@ -165,14 +167,11 @@ class App extends Component {
             <DoctorsList doctors={this.state.doctors}
                          completeList={this.state.completeList}
                          onClick={this.onOpenModal}
-              // open={this.state.open}
                          onClose={this.onCloseModal}
                          filter={this.filterList}
                          handleInput={this.handleInput}
-                         handleRadio={this.handleRadio}
                          search={this.state.search}
                          handleSubmit={this.state.handleSubmit}
-              // selectedDoctor={this.state.doctor}
             />
             {
               this.state.open &&
