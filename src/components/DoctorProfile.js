@@ -80,6 +80,7 @@ class DoctorProfile extends Component {
                   </div>
                   <div className="selected-doc-location">
                     <FontAwesomeIcon icon={"map-marker-alt"} />{" "}
+                    <div className="location-txt">
                     {this.props.selectedDoctor.practices[0].name}
                     <br />
                     {
@@ -93,6 +94,8 @@ class DoctorProfile extends Component {
                     {this.props.selectedDoctor.practices[0].visit_address.state}
                     <br />
                     {this.props.selectedDoctor.practices[0].visit_address.zip}
+                    </div>
+                   
                   </div>
                 </div>
               </div>

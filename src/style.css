@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css?family=Josefin+Sans");
+
 html {
   scroll-behavior: smooth;
 }
@@ -7,9 +9,10 @@ body {
   background: #dfdfdf;
   background-repeat: no-repeat;
   background-size: cover;
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  /* font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif; */
   margin: 0;
+  font-family: "Josefin Sans", cursive;
 }
 
 #root-container {
@@ -21,8 +24,9 @@ body {
   width: fit-content;
 }
 
-.titleText {
+.doc-list-name {
   font-weight: bold;
+  font-size: 1rem;
 }
 
 .loader {
@@ -63,19 +67,25 @@ body {
   flex-direction: row;
   flex-wrap: wrap;
   padding: 1.3rem;
+  display: flex;
+  justify-content: center;
 }
 
-.doctor-card {
-  display: inline-flex;
+.doc-description-container {
+  display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
-  width: 7em;
+}
+.doctor-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 24em;
   /* height: 18rem; */
   margin: 10px 10px;
   background-color: white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   border-radius: 7px;
-  padding: 0 3rem;
+  padding: 2rem;
   font-size: 0.75rem;
 }
 
@@ -88,7 +98,7 @@ body {
   -moz-box-shadow: 0px 0px 15px 0px #4da6cc;
   box-shadow: 0px 0px 15px 0px #4da6cc;
   transition-timing-function: ease-in;
-  transition-duration: .3s;
+  transition-duration: 0.3s;
 }
 
 .titleText {
@@ -101,17 +111,32 @@ body {
   object-fit: cover;
   width: 100px;
   height: 100px;
+  margin-right: 1.5rem;
+}
+
+.doc-list-specialties {
+  display: flex;
+  flex-direction: column;
+}
+
+.specialty-name {
+    margin: 0.2rem 0 0.4rem .3rem;
+}
+
+.doc-list-specialty {
+  display: flex;
 }
 
 /* DOCTOR PROFILE MODAL*/
 
 .selected-doc-container {
   margin-bottom: 2rem;
-  text-align: center;
+  text-align: left;
+  display: flex;
 }
 
-.styles_modalCenter__L9F2w{
-    border-radius: 5%;
+.styles_modalCenter__L9F2w {
+  border-radius: 5%;
 }
 
 .selected-doc-des-container {
@@ -119,13 +144,12 @@ body {
   justify-content: center;
 }
 
-.selected-doctor-photo{
-    border-radius: 50%;
-    object-fit: cover;
-    width: 110px;
-    height: 110px;
-  margin-bottom: 1rem; 
-
+.selected-doctor-photo {
+  border-radius: 50%;
+  object-fit: cover;
+  width: 110px;
+  height: 110px;
+  margin-right: 2rem;
 }
 
 .doc-profile-txt {
@@ -141,32 +165,36 @@ body {
 .doc-specialty {
   display: flex;
   text-align: left;
+  flex-direction: column;
+  font-style: italic
 }
 
 .styles_overlay__CLSq- {
   background-color: rgba(0, 0, 0, 0.75) !important;
 }
 
-.modal-info-container{
-    padding: 2.5rem;
+.modal-info-container {
+  padding: 2.5rem;
 }
 
-.selected-doc-lcoation{
-    text-align: left;
+.selected-doc-lcoation {
+  text-align: left;
+  display: flex !important;
 }
 
 /* SIMILAR DOCTORS LIST */
 .similar-docs-container {
   flex-direction: row;
+  display: flex;
 }
-/* 
+
 .similar-doc-img {
-    margin: 0 1rem;
-    border-radius: 50%;
-    object-fit: cover;
-    width: 50px;
-    height: 50px;
-} */
+  margin: 0 1rem;
+  border-radius: 50%;
+  object-fit: cover;
+  width: 50px;
+  height: 50px;
+}
 
 .similar-docs {
   display: block;
