@@ -88,10 +88,6 @@ class App extends Component {
     this.setState({ open: false }, () => console.log(this.state.open, "STATE ON CLOSE"));
   };
 
-  homePage = () => {
-    this.setState({ view: "homepage" });
-  };
-
   fetchData = (url) => {
     fetch(url)
       .then(data => data.json())
@@ -163,7 +159,6 @@ class App extends Component {
                              onClose={this.onCloseModal}
                              doctors={this.state.doctors}
                              selectedDoctor={this.state.doctor}
-                // homePage={this.homePage}
               />
             }
           </div>

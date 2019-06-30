@@ -17,20 +17,8 @@ body {
 
 #root-container {
   display: flex;
-}
-
-.main {
-  display: flex;
-  width: fit-content;
-}
-
-.doc-list-name {
-  font-weight: bold;
-  font-size: 1rem;
-}
-
-.loader {
-  margin: auto;
+  height: 100%;
+  width: 100%;
 }
 
 /* SIDE MENU */
@@ -59,10 +47,23 @@ body {
   border: 3px solid black;
 }
 
+/* LOADER */
+.loader {
+  margin: auto;
+}
+
+/* MAIN */
+.main {
+  display: flex;
+  width: 100%
+}
+
 /* DOCTORS LIST */
 #doctors-list-container {
   display: flex;
   flex-direction: column;
+  width: auto;
+  margin: 0 auto;
 }
 
 .input-container {
@@ -114,7 +115,7 @@ body {
 
 .list-container {
   height: auto;
-  width: 100%;
+  width: fit-content;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -131,7 +132,6 @@ body {
   flex-direction: row;
   align-items: center;
   width: 24em;
-  /* height: 18rem; */
   margin: 10px 10px;
   background-color: white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
