@@ -60,6 +60,58 @@ body {
 }
 
 /* DOCTORS LIST */
+#doctors-list-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-container {
+  margin: 1.5rem auto 0 auto;
+  display: flex;
+  flex-direction: row;
+}
+
+.inner-input-container {
+  width: 450px;
+  display: inline-flex;
+  justify-content: space-between;
+}
+
+#input-bar {
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 7px;
+  text-indent: 6px;
+  width: 180px;
+}
+
+#select-menu {
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+}
+
+#radio-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.radio-labels {
+  font-size: 12px;
+}
+
+#input-button {
+}
+
+#input-button:hover {
+
+}
+
+#input-button:active {
+
+}
+
 .list-container {
   height: auto;
   width: 100%;
@@ -67,7 +119,6 @@ body {
   flex-direction: row;
   flex-wrap: wrap;
   padding: 1.3rem;
-  display: flex;
   justify-content: center;
 }
 
