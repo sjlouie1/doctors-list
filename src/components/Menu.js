@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import logo from "../assets/logo.svg"
 
 const Menu = () => {
   const categories = [
@@ -14,8 +15,7 @@ const Menu = () => {
   return (
     <div className="menu">
       <div className="patient-info">
-        {/* <img>LOGO HERE</img>
-        <img>PATINT IMG</img> */}
+    <img src={logo} alt="Doc Fusion logo"/>
         <p>online</p>
       </div>
       <div className="categories">

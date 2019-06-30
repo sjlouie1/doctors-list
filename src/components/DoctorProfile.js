@@ -68,7 +68,10 @@ class DoctorProfile extends Component {
                   {this.props.selectedDoctor.practices[0].website ? (
                     <div className="doc-website" className="doc-details">
                       <FontAwesomeIcon icon={"window-restore"} />{" "}
-                      <a href={this.props.selectedDoctor.practices[0].website} target="_blank">
+                      <a
+                        href={this.props.selectedDoctor.practices[0].website}
+                        target="_blank"
+                      >
                         <span className="doc-details-txt">Website</span>
                       </a>
                     </div>
@@ -86,6 +89,25 @@ class DoctorProfile extends Component {
                         ? "Currently accepting new patients"
                         : "Not accepting new patients"}
                     </span>
+                  </div>
+                  <div className="insurances">
+                    <Tooltip
+                      content={this.props.selectedDoctor.insurances.map(
+                        plan => {
+                          return plan.insurance_plan.name;
+                        }
+                      )}
+                      customCss={css`
+                        white-space: nowrap;
+                        display: flex;
+                      `}
+                    >
+                      <div className="doc-details">
+                        {" "}
+                        <FontAwesomeIcon icon={"address-card"} />{" "}
+                        <span>Accepted Insurance</span>
+                      </div>
+                    </Tooltip>
                   </div>
                   <div
                     className="selected-doc-location"
@@ -114,8 +136,7 @@ class DoctorProfile extends Component {
                     </div>
                   </div>
                   <div className="doc-number">
-                  <FontAwesomeIcon icon={"phone-alt"} />{" "}
-                    (
+                    <FontAwesomeIcon icon={"phone-alt"} /> (
                     {this.props.selectedDoctor.practices[0].phones[0].number.slice(
                       0,
                       3
