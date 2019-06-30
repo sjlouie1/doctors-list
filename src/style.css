@@ -17,20 +17,8 @@ body {
 
 #root-container {
   display: flex;
-}
-
-.main {
-  display: flex;
-  width: fit-content;
-}
-
-.doc-list-name {
-  font-weight: bold;
-  font-size: 1rem;
-}
-
-.loader {
-  margin: auto;
+  height: 100%;
+  width: 100%;
 }
 
 /* SIDE MENU */
@@ -59,15 +47,79 @@ body {
   border: 3px solid black;
 }
 
+/* LOADER */
+.loader {
+  margin: auto;
+}
+
+/* MAIN */
+.main {
+  display: flex;
+  width: 100%
+}
+
 /* DOCTORS LIST */
+#doctors-list-container {
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  margin: 0 auto;
+}
+
+.input-container {
+  margin: 1.5rem auto 0 auto;
+  display: flex;
+  flex-direction: row;
+}
+
+.inner-input-container {
+  width: 450px;
+  display: inline-flex;
+  justify-content: space-between;
+}
+
+#input-bar {
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 7px;
+  text-indent: 6px;
+  width: 180px;
+}
+
+#select-menu {
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+}
+
+#radio-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.radio-labels {
+  font-size: 12px;
+}
+
+#input-button {
+}
+
+#input-button:hover {
+
+}
+
+#input-button:active {
+
+}
+
 .list-container {
   height: auto;
-  width: 100%;
+  width: fit-content;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   padding: 1.3rem;
-  display: flex;
   justify-content: center;
 }
 
@@ -80,7 +132,6 @@ body {
   flex-direction: row;
   align-items: center;
   width: 24em;
-  /* height: 18rem; */
   margin: 10px 10px;
   background-color: white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
