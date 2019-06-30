@@ -4,8 +4,8 @@ import DoctorsList from "./DoctorsList";
 import DoctorProfile from "./DoctorProfile";
 import Menu from "./Menu";
 
-const resource_url =
-  "https://api.betterdoctor.com/2016-03-01/doctors?location=ca&user_location=37.773%2C-122.413&skip=0&limit=100&user_key=1540b0816889c1455a1ddb998fe7801f";
+// const resource_url =
+//   "https://api.betterdoctor.com/2016-03-01/doctors?location=ca&user_location=37.773%2C-122.413&skip=0&limit=100&user_key=1540b0816889c1455a1ddb998fe7801f";
 
 class App extends Component {
   constructor() {
@@ -44,6 +44,7 @@ class App extends Component {
     fetch(url)
       .then(data => data.json())
       .then(data => {
+        console.log(data);
         const filtered = data.data.filter(
           doc =>
             !doc.profile.image_url.includes("general_doctor_male") &&

@@ -1,18 +1,23 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { AppContainer } from 'react-hot-loader';
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { faBriefcaseMedical } from '@fortawesome/free-solid-svg-icons';
-import App from './components/App';
-import styles from './style.css';
-library.add(faBriefcaseMedical);
+import React from "react";
+import ReactDOM from "react-dom";
+import { AppContainer } from "react-hot-loader";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import {
+  faBriefcaseMedical,
+  faAddressCard,
+  faWindowRestore,
+  faMapMarkerAlt
+} from "@fortawesome/free-solid-svg-icons";
+import App from "./components/App";
+import styles from "./style.css";
+library.add(faBriefcaseMedical, faAddressCard, faWindowRestore, faMapMarkerAlt);
 
 const render = Component => {
   ReactDOM.render(
     <AppContainer>
       <Component />
     </AppContainer>,
-    document.getElementById('root')
+    document.getElementById("root")
   );
 };
 
@@ -25,9 +30,9 @@ render(App);
 if (module.hot) {
   // keep in mind - here you are configuring HMR to accept CHILDREN MODULE
   // while `hot` would configure HMR for the CURRENT module
-  module.hot.accept('./components/App.js', () => {
+  module.hot.accept("./components/App.js", () => {
     // if you are using harmony modules ({modules:false})
-    const NextMain = require('./components/App').default;
+    const NextMain = require("./components/App").default;
     // in all other cases - re-require App manually
     render(NextMain);
   });

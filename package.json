@@ -27,7 +27,9 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-responsive-modal": "^4.0.1",
-    "react-spinners": "^0.5.4"
+    "react-simple-tooltip": "^2.6.0",
+    "react-spinners": "^0.5.4",
+    "styled-components": "^4.3.2"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",
