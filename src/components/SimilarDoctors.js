@@ -26,7 +26,6 @@ class SimilarDoctors extends Component {
               <div key={i} className="similar-docs">
                 {/* <img src={doctor.profile.image_url} className="similar-doc-img" />
                 <br /> */}
-                
                 {doctor.profile.first_name} {doctor.profile.last_name}{" "}
                 {doctor.profile.title}  
                
