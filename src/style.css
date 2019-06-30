@@ -1,3 +1,7 @@
+html{
+scroll-behavior: smooth;
+}
+
 body {
     /* background: url(https://sjl-portfolio-images.s3-us-west-1.amazonaws.com/doc-dashboard/61802.jpg); */
     background: #dfdfdf;
@@ -86,20 +90,19 @@ body {
 
 .doctor-photo {
     border-radius: 50%;
-    height: 7rem;
-}
-
-.doc-description {
-
+    object-fit: cover;
+    width: 100px;
+    height: 100px;
 }
 
 /* DOCTOR PROFILE MODAL*/
 
 .selected-doc-container {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
     margin-bottom: 2rem;
+}
+
+.selected-doc-des-container{
+    text-align: left;
 }
 
 .doc-profile-txt {
@@ -126,10 +129,17 @@ body {
 
 /* SIMILAR DOCTORS LIST */
 .similar-docs-container {
-    display: flex;
     flex-direction: row
 }
-
-.doc-img {
+/* 
+.similar-doc-img {
     margin: 0 1rem;
+    border-radius: 50%;
+    object-fit: cover;
+    width: 50px;
+    height: 50px;
+} */
+
+.similar-docs{
+    display: block;
 }

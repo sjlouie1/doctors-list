@@ -23,11 +23,13 @@ class SimilarDoctors extends Component {
           filteredDoctors.map((doctor, i, collection) =>
             !doctor.profile.image_url.includes("general_doctor_male") &&
             !doctor.profile.image_url.includes("general_doctor_female") ? (
-              <div className="doc-img" key={i}>
-                <img src={doctor.profile.image_url} />
-                <br />
+              <div key={i}>
+                {/* <img src={doctor.profile.image_url} className="similar-doc-img" />
+                <br /> */}
+                
                 {doctor.profile.first_name} {doctor.profile.last_name}{" "}
-                {doctor.profile.title}
+                {doctor.profile.title}  
+               
                 
               </div>
             ) : (

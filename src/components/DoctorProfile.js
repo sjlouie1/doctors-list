@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import SimilarDoctors from "./SimilarDoctors";
+
 import Modal from "react-responsive-modal";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 
 class DoctorProfile extends Component {
   constructor(props) {
@@ -36,7 +39,9 @@ class DoctorProfile extends Component {
                       (specialty, i) => {
                         return (
                           <div key={i}>
-                            <span className="titleText">{specialty.name}</span>
+                           <FontAwesomeIcon icon={"briefcase-medical"} />
+                           {" "} 
+                            <span className="sub-text">{specialty.name}</span>
                           </div>
                         );
                       }
