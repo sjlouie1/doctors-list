@@ -27,54 +27,10 @@ class App extends Component {
     };
   }
 
-  // handleRadio = e => {
-  //   const inputType = e.target.name;
-  //   let copy = [...this.state.doctors];
-  //   let { search: { input, type, gender } } = this.state;
-  //   let currState = { ...this.state.search };
-  //   currState[inputType] = !currState[inputType];
-  //
-  //   this.setState({ search: currState }, () => {
-  //     console.log(this.state.search)
-  //     // let copy = [...this.state.completeList];
-  //     // let { search: { input, type, gender } } = this.state;
-  //     if (input[0] && type === 'Name' && gender === 'Both') {
-  //       copy = copy.filter(doc => doc.profile.first_name.toLowerCase().slice(0, input.length) === input.toLowerCase()
-  //       )
-  //     }
-  //     if (input[0] && type === 'Name' && gender !== 'Both') {
-  //       copy = copy.filter(doc => doc.profile.first_name.toLowerCase().slice(0, input.length) === input.toLowerCase() && doc.profile.gender.toLowerCase() === gender.toLowerCase()
-  //       )
-  //     }
-  //     if (input[0] && type === 'Specialty' && gender === 'Both') {
-  //       copy = copy.filter(doc => {
-  //           return doc.specialties.filter(specialty => specialty.name.toLowerCase().slice(0, input.length) === input.toLowerCase())
-  //         }
-  //       )
-  //     }
-  //     if (input) {
-  //       this.setState({
-  //         doctors: copy
-  //       })
-  //     } else {
-  //       this.setState({
-  //         doctors: [...this.state.completeList]
-  //       })
-  //     }
-  //   });
-  // };
-
   handleInput = e => {
     const inputType = e.target.name;
     let copy = [...this.state.completeList];
-    let { search: { input, type, gender } } = this.state;
     let currState = { ...this.state.search };
-
-    // filter by specialty
-    if (inputType === 'type' && e.target.value === 'Specialty') {
-      currState.gender = 'Both';
-      this.setState({search: currState});
-    }
 
     currState[inputType] = e.target.value;
     this.setState({ search: currState }, () => {
@@ -156,7 +112,8 @@ class App extends Component {
         const filtered = data.data.filter(
           doc =>
             !doc.profile.image_url.includes("general_doctor_male") &&
-            !doc.profile.image_url.includes("general_doctor_female")
+            !doc.profile.image_url.includes("general_doctor_female") &&
+            doc.profile.hasOwnProperty('gender')
         );
         const completeList = [...filtered];
         this.setState({ doctors: filtered, completeList, isLoading: false });

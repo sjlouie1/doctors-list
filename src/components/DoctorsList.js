@@ -55,7 +55,7 @@ class DoctorsList extends Component {
                         value={gender}
                         checked={this.props.search.gender === gender}
                         onChange={this.props.handleInput}
-                        disabled={this.props.search.type === 'Specialty'}
+                        // disabled={this.props.search.type === 'Specialty'}
                       />
                       {gender}
                     </label>
