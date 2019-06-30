@@ -8,7 +8,7 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   margin: 0;
 }
 
@@ -56,13 +56,65 @@ body {
 }
 
 /* DOCTORS LIST */
+#doctors-list-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-container {
+  margin: 1.5rem auto 0 auto;
+  display: flex;
+  flex-direction: row;
+}
+
+.inner-input-container {
+  width: 500px;
+  display: inline-flex;
+  justify-content: space-between;
+}
+
+#input-bar {
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 7px;
+  text-indent: 6px;
+  width: 180px;
+}
+
+#select-menu {
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+}
+
+#radio-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.radio-labels {
+  font-size: 12px;
+}
+
+#input-button {
+}
+
+#input-button:hover {
+
+}
+
+#input-button:active {
+
+}
+
+
 .list-container {
-  height: auto;
-  width: 100%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   padding: 1.3rem;
+  width: fit-content;
 }
 
 .doctor-card {
@@ -110,8 +162,8 @@ body {
   text-align: center;
 }
 
-.styles_modalCenter__L9F2w{
-    border-radius: 5%;
+.styles_modalCenter__L9F2w {
+  border-radius: 5%;
 }
 
 .selected-doc-des-container {
@@ -119,12 +171,12 @@ body {
   justify-content: center;
 }
 
-.selected-doctor-photo{
-    border-radius: 50%;
-    object-fit: cover;
-    width: 110px;
-    height: 110px;
-  margin-bottom: 1rem; 
+.selected-doctor-photo {
+  border-radius: 50%;
+  object-fit: cover;
+  width: 110px;
+  height: 110px;
+  margin-bottom: 1rem;
 
 }
 
@@ -147,19 +199,20 @@ body {
   background-color: rgba(0, 0, 0, 0.75) !important;
 }
 
-.modal-info-container{
-    padding: 2.5rem;
+.modal-info-container {
+  padding: 2.5rem;
 }
 
-.selected-doc-lcoation{
-    text-align: left;
+.selected-doc-lcoation {
+  text-align: left;
 }
 
 /* SIMILAR DOCTORS LIST */
 .similar-docs-container {
   flex-direction: row;
 }
-/* 
+
+/*
 .similar-doc-img {
     margin: 0 1rem;
     border-radius: 50%;

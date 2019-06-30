@@ -4,8 +4,8 @@ import DoctorsList from "./DoctorsList";
 import DoctorProfile from "./DoctorProfile";
 import Menu from "./Menu";
 
-// const resource_url =
-//   "https://api.betterdoctor.com/2016-03-01/doctors?location=ca&user_location=37.773%2C-122.413&skip=0&limit=100&user_key=1540b0816889c1455a1ddb998fe7801f";
+const resource_url =
+  "https://api.betterdoctor.com/2016-03-01/doctors?location=ca&user_location=37.773%2C-122.413&skip=0&limit=100&user_key=1540b0816889c1455a1ddb998fe7801f";
 
 class App extends Component {
   constructor() {
@@ -14,12 +14,120 @@ class App extends Component {
     this.state = {
       view: "homepage",
       open: false,
+      completeList: [],
       doctors: [],
       doctor: {},
       isLoading: false,
-      url: ""
+      url: "",
+      search: {
+        input: '',
+        type: 'Name',
+        gender: 'Both'
+      }
     };
   }
+
+  // handleRadio = e => {
+  //   const inputType = e.target.name;
+  //   let copy = [...this.state.doctors];
+  //   let { search: { input, type, gender } } = this.state;
+  //   let currState = { ...this.state.search };
+  //   currState[inputType] = !currState[inputType];
+  //
+  //   this.setState({ search: currState }, () => {
+  //     console.log(this.state.search)
+  //     // let copy = [...this.state.completeList];
+  //     // let { search: { input, type, gender } } = this.state;
+  //     if (input[0] && type === 'Name' && gender === 'Both') {
+  //       copy = copy.filter(doc => doc.profile.first_name.toLowerCase().slice(0, input.length) === input.toLowerCase()
+  //       )
+  //     }
+  //     if (input[0] && type === 'Name' && gender !== 'Both') {
+  //       copy = copy.filter(doc => doc.profile.first_name.toLowerCase().slice(0, input.length) === input.toLowerCase() && doc.profile.gender.toLowerCase() === gender.toLowerCase()
+  //       )
+  //     }
+  //     if (input[0] && type === 'Specialty' && gender === 'Both') {
+  //       copy = copy.filter(doc => {
+  //           return doc.specialties.filter(specialty => specialty.name.toLowerCase().slice(0, input.length) === input.toLowerCase())
+  //         }
+  //       )
+  //     }
+  //     if (input) {
+  //       this.setState({
+  //         doctors: copy
+  //       })
+  //     } else {
+  //       this.setState({
+  //         doctors: [...this.state.completeList]
+  //       })
+  //     }
+  //   });
+  // };
+
+  handleInput = e => {
+    const inputType = e.target.name;
+    let copy = [...this.state.completeList];
+    let { search: { input, type, gender } } = this.state;
+    let currState = { ...this.state.search };
+
+    // filter by specialty
+    if (inputType === 'type' && e.target.value === 'Specialty') {
+      currState.gender = 'Both';
+      this.setState({search: currState});
+    }
+
+    currState[inputType] = e.target.value;
+    this.setState({ search: currState }, () => {
+
+      console.log(this.state.search)
+      const { search: { input, type, gender } } = this.state;
+      if (input[0] && type === 'Name' && gender === 'Both') {
+        copy = copy.filter(doc => doc.profile.first_name.toLowerCase().slice(0, input.length) === input.toLowerCase()
+        );
+      }
+      if (input[0] && type === 'Name' && gender !== 'Both') {
+        copy = copy.filter(doc => doc.profile.first_name.toLowerCase().slice(0, input.length) === input.toLowerCase() && doc.profile.gender.toLowerCase() === gender.toLowerCase()
+        );
+      }
+      // let b = a.filter(item => {
+      //   return item.spec.find( x => x.tar.slice(0,1) === 'a')
+      // });
+      if (input[0] && type === 'Specialty' && gender === 'Both') {
+        copy = copy.filter(doc => doc.specialties.find(specialty => specialty.name.toLowerCase().slice(0, input.length) === input.toLowerCase()
+          )
+        );
+        console.log(copy)
+      }
+      if (input[0] && type === 'Specialty' && gender !== 'Both') {
+        copy = copy.filter(doc => doc.specialties.find(specialty => specialty.name.toLowerCase().slice(0, input.length) === input.toLowerCase()
+          ) && doc.profile.gender.toLowerCase() === gender.toLowerCase()
+        );
+      }
+      if (input) {
+        this.setState({
+          doctors: copy
+        })
+      } else {
+        this.setState({
+          doctors: [...this.state.completeList]
+        })
+      }
+    });
+  };
+
+  filterList = (type, gender) => {
+    let copy = [...this.state.completeList];
+    if (type === 'Name') {
+
+    }
+
+  };
+
+  handleSubmit = () => {
+    e.preventDefault();
+    console.log('submit\n', this.state.search)
+    console.log(this.state.doctors)
+  };
 
   onOpenModal = index => {
     const selectedDoctor = this.state.doctors[index];
@@ -50,7 +158,8 @@ class App extends Component {
             !doc.profile.image_url.includes("general_doctor_male") &&
             !doc.profile.image_url.includes("general_doctor_female")
         );
-        this.setState({ doctors: filtered, isLoading: false });
+        const completeList = [...filtered];
+        this.setState({ doctors: filtered, completeList, isLoading: false });
       })
       .catch(err => console.log(err));
   };
@@ -59,7 +168,6 @@ class App extends Component {
     this.setState({ isLoading: true });
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(loc => {
-        console.log(loc.coords);
         let { latitude, longitude } = loc.coords;
         latitude = latitude.toFixed(3);
         longitude = longitude.toFixed(3);
@@ -78,7 +186,7 @@ class App extends Component {
   }
 
   render() {
-    // console.log(this.state.doctor)
+    // console.log(this.state)
     return (
       <div id="root-container">
         <Menu/>
@@ -95,12 +203,18 @@ class App extends Component {
         {/* only renders Loading component if isLoading is true */}
         {/*className main will only load if isLoading is false */}
         {
-          !this.state.isLoading && this.state.doctors.length > 0 &&
+          !this.state.isLoading &&
           <div className="main">
             <DoctorsList doctors={this.state.doctors}
+                         completeList={this.state.completeList}
                          onClick={this.onOpenModal}
               // open={this.state.open}
                          onClose={this.onCloseModal}
+                         filter={this.filterList}
+                         handleInput={this.handleInput}
+                         handleRadio={this.handleRadio}
+                         search={this.state.search}
+                         handleSubmit={this.state.handleSubmit}
               // selectedDoctor={this.state.doctor}
             />
             {
