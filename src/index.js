@@ -6,11 +6,12 @@ import {
   faBriefcaseMedical,
   faAddressCard,
   faWindowRestore,
-  faMapMarkerAlt
+  faMapMarkerAlt,
+  faPlusSquare
 } from "@fortawesome/free-solid-svg-icons";
 import App from "./components/App";
 import styles from "./style.css";
-library.add(faBriefcaseMedical, faAddressCard, faWindowRestore, faMapMarkerAlt);
+library.add(faBriefcaseMedical, faAddressCard, faWindowRestore, faMapMarkerAlt, faPlusSquare);
 
 const render = Component => {
   ReactDOM.render(

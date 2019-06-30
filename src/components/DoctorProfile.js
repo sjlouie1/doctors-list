@@ -71,7 +71,9 @@ class DoctorProfile extends Component {
                   ) : (
                     <div />
                   )}
-                    <div className="patient-acceptance-status">
+                  <div className="patient-acceptance-status">
+                  <FontAwesomeIcon icon={"plus-square"} /> 
+                  {" "}
                     {this.props.selectedDoctor.practices[0].accepts_new_patients
                       ? "currently accepting new patients"
                       : "not accepting new patients"}
@@ -92,7 +94,6 @@ class DoctorProfile extends Component {
                     <br />
                     {this.props.selectedDoctor.practices[0].visit_address.zip}
                   </div>
-                
                 </div>
               </div>
             </div>
