@@ -24,9 +24,8 @@ class SimilarDoctors extends Component {
             !doctor.profile.image_url.includes("general_doctor_male") &&
             !doctor.profile.image_url.includes("general_doctor_female") ? (
               <div key={i} className="similar-docs">
-                <img src={doctor.profile.image_url} className="similar-doc-img" />
-                <br />
-                
+                {/* <img src={doctor.profile.image_url} className="similar-doc-img" />
+                <br /> */}
                 {doctor.profile.first_name} {doctor.profile.last_name}{" "}
                 {doctor.profile.title}  
                

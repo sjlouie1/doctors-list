@@ -7,7 +7,8 @@ import {
   faAddressCard,
   faWindowRestore,
   faMapMarkerAlt,
-  faPlusSquare
+  faPlusSquare,
+  faPhoneAlt
 } from "@fortawesome/free-solid-svg-icons";
 import App from "./components/App";
 import styles from "./style.css";
@@ -16,7 +17,8 @@ library.add(
   faAddressCard,
   faWindowRestore,
   faMapMarkerAlt,
-  faPlusSquare
+  faPlusSquare,
+  faPhoneAlt
 );
 
 const render = Component => {

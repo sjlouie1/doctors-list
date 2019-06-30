@@ -49,58 +49,92 @@ class DoctorProfile extends Component {
                     )}
                   </div>
                   <br />
-                  <Tooltip
-                    content={this.props.selectedDoctor.profile.bio}
-                    customCss={css`
-                      white-space: nowrap;
-                      display: flex;
-                    `}
-                  >
-                    <div>
-                      {" "}
-                      <FontAwesomeIcon icon={"address-card"} /> <span>Bio</span>
-                    </div>
-                  </Tooltip>
+                  <div>
+                    <Tooltip
+                      content={this.props.selectedDoctor.profile.bio}
+                      customCss={css`
+                        white-space: nowrap;
+                        display: flex;
+                      `}
+                    >
+                      <div className="doc-bio" className="doc-details">
+                        {" "}
+                        <FontAwesomeIcon icon={"address-card"} />{" "}
+                        <span className="doc-details-txt">Bio</span>
+                      </div>
+                    </Tooltip>
+                  </div>
+
                   {this.props.selectedDoctor.practices[0].website ? (
-                    <div className="doc-website">
+                    <div className="doc-website" className="doc-details">
                       <FontAwesomeIcon icon={"window-restore"} />{" "}
-                      <a href={this.props.selectedDoctor.practices[0].website}>
-                        Website
+                      <a href={this.props.selectedDoctor.practices[0].website} target="_blank">
+                        <span className="doc-details-txt">Website</span>
                       </a>
                     </div>
                   ) : (
                     <div />
                   )}
-                  <div className="patient-acceptance-status">
-                  <FontAwesomeIcon icon={"plus-square"} /> 
-                  {" "}
-                    {this.props.selectedDoctor.practices[0].accepts_new_patients
-                      ? "currently accepting new patients"
-                      : "not accepting new patients"}
+                  <div
+                    className="patient-acceptance-status"
+                    className="doc-details"
+                  >
+                    <FontAwesomeIcon icon={"plus-square"} />{" "}
+                    <span className="doc-details-txt">
+                      {this.props.selectedDoctor.practices[0]
+                        .accepts_new_patients
+                        ? "Currently accepting new patients"
+                        : "Not accepting new patients"}
+                    </span>
                   </div>
-                  <div className="selected-doc-location">
+                  <div
+                    className="selected-doc-location"
+                    className="doc-details"
+                  >
                     <FontAwesomeIcon icon={"map-marker-alt"} />{" "}
-                    <div className="location-txt">
-                    {this.props.selectedDoctor.practices[0].name}
-                    <br />
-                    {
-                      this.props.selectedDoctor.practices[0].visit_address
-                        .street
-                    }
-                    <br />
-                    {
-                      this.props.selectedDoctor.practices[0].visit_address.city
-                    },{" "}
-                    {this.props.selectedDoctor.practices[0].visit_address.state}
-                    <br />
-                    {this.props.selectedDoctor.practices[0].visit_address.zip}
+                    <div className="location-txt" className="doc-details-txt">
+                      {this.props.selectedDoctor.practices[0].name}
+                      <br />
+                      {
+                        this.props.selectedDoctor.practices[0].visit_address
+                          .street
+                      }
+                      <br />
+                      {
+                        this.props.selectedDoctor.practices[0].visit_address
+                          .city
+                      }
+                      ,{" "}
+                      {
+                        this.props.selectedDoctor.practices[0].visit_address
+                          .state
+                      }
+                      <br />
+                      {this.props.selectedDoctor.practices[0].visit_address.zip}
                     </div>
-                   
+                  </div>
+                  <div className="doc-number">
+                  <FontAwesomeIcon icon={"phone-alt"} />{" "}
+                    (
+                    {this.props.selectedDoctor.practices[0].phones[0].number.slice(
+                      0,
+                      3
+                    )}
+                    )
+                    {this.props.selectedDoctor.practices[0].phones[0].number.slice(
+                      3,
+                      6
+                    )}
+                    -
+                    {this.props.selectedDoctor.practices[0].phones[0].number.slice(
+                      6,
+                      10
+                    )}
                   </div>
                 </div>
               </div>
             </div>
-            Doctors with similar specialties:
+            <span>Doctors with similar specialties: </span>
             <SimilarDoctors
               doctors={this.props.doctors}
               selectedDoctor={this.props.selectedDoctor}
