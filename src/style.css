@@ -14,6 +14,7 @@ body {
 
 a {
   outline: none;
+  text-decoration: none;
 }
 
 #root-container {
@@ -22,9 +23,10 @@ a {
   width: 100%;
 }
 
-svg{
-    margin-right: .3rem;
+svg {
+  margin-right: .3rem;
 }
+
 /* SIDE BAR */
 #nav-title {
   width: 100%;
@@ -189,7 +191,7 @@ svg{
 }
 
 .specialty-name {
-    margin: 0.2rem 0 0.4rem .3rem;
+  margin: 0.2rem 0 0.4rem .3rem;
 }
 
 .doc-list-specialty {
@@ -253,13 +255,34 @@ svg{
   background-color: rgba(0, 0, 0, 0.75) !important;
 }
 
-.doc-details{
-    margin: .3rem 0;
-    display: flex;
+.doc-details {
+  margin: .3rem 0;
+  display: flex;
 }
 
-.doc-details-txt{
-    margin-left: .6rem;
+.doc-details-txt {
+  margin-left: .6rem;
+}
+
+.profile-tooltip {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.profile-tooltip-click {
+  font-size: 14px !important;
+  z-index: 5000;
+  pointer-events: auto !important;
+}
+
+.tooltip-container-bio {
+  width: 400px;
+}
+
+.tooltip-container-insurance {
+  max-height: 300px;
+  width: 300px;
+  overflow-y: auto;
 }
 
 .modal-info-container {
@@ -268,7 +291,7 @@ svg{
 
 .selected-doc-location {
   text-align: left;
-  display: flex; 
+  display: flex;
 }
 
 /* SIMILAR DOCTORS LIST */
@@ -287,5 +310,5 @@ svg{
 }
 
 .similar-docs {
-    margin: .1rem 0;
+  margin: .1rem 0;
 }

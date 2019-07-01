@@ -3,6 +3,7 @@ import BeatLoader from "react-spinners/BeatLoader";
 import DoctorsList from "./DoctorsList";
 import DoctorProfile from "./DoctorProfile";
 import Menu from "./Menu";
+import Tooltip from "react-tooltip";
 
 const resource_url =
   "https://api.betterdoctor.com/2016-03-01/doctors?location=ca&user_location=37.773%2C-122.413&skip=0&limit=100&user_key=1540b0816889c1455a1ddb998fe7801f";
@@ -16,7 +17,7 @@ class App extends Component {
       open: false,
       completeList: [],
       doctors: [],
-      doctor: {},
+      doctor: null,
       isLoading: false,
       url: "",
       search: {
@@ -81,7 +82,7 @@ class App extends Component {
         doctor: selectedDoctor,
         open: true
       },
-      () => console.log(this.state.open, " STATE ON OPEN")
+      () => Tooltip.rebuild()
     );
   };
 
@@ -164,6 +165,34 @@ class App extends Component {
                              selectedDoctor={this.state.doctor}
               />
             }
+          </div>
+        }
+        {
+          this.state.doctor &&
+          <div>
+            <Tooltip
+              id="profile-bio"
+              effect="solid"
+              globalEventOff="click"
+              className="profile-tooltip-click"
+            >
+              <div className='tooltip-container-bio'>
+                {this.state.doctor.profile.bio}
+              </div>
+            </Tooltip>
+            <Tooltip
+              id="profile-insurance"
+              effect="solid"
+              globalEventOff="click"
+              className="profile-tooltip-click"
+            >
+              <div className='tooltip-container-insurance'>
+                {
+                  this.state.doctor.insurances.map((plan, i) =>
+                    <div key={"tooltip-insurance-" + i}>{plan.insurance_plan.name}</div>)
+                }
+              </div>
+            </Tooltip>
           </div>
         }
       </div>
