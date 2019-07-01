@@ -28,7 +28,7 @@ const SimilarDoctors = props => {
           )
         )
       ) : (
-        <div>none</div>
+        <div>None</div>
       )}
     </div>
   );
