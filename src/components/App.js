@@ -23,7 +23,8 @@ class App extends Component {
         input: '',
         type: 'Name',
         gender: 'Both'
-      }
+      },
+      active: 'Doctor Search'
     };
   }
 
@@ -130,7 +131,9 @@ class App extends Component {
     // console.log(this.state)
     return (
       <div id="root-container">
-        <Menu/>
+        <div id="sidebar-container">
+          <Menu active={this.state.active}/>
+        </div>
         {
           this.state.isLoading &&
           <div className="loader">
