@@ -5,14 +5,15 @@ html {
 }
 
 body {
-  /* background: url(https://sjl-portfolio-images.s3-us-west-1.amazonaws.com/doc-dashboard/61802.jpg); */
   background: #dfdfdf;
   background-repeat: no-repeat;
   background-size: cover;
-  /* font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif; */
   margin: 0;
   font-family: "Josefin Sans", cursive;
+}
+
+a {
+  outline: none;
 }
 
 #root-container {
@@ -48,11 +49,11 @@ svg{
 }
 
 .nav-category {
-  padding: 1rem 0.5rem;
+  padding: 0.75rem 1rem;
 }
 
 .nav-category-active {
-  padding: 1rem 0.5rem;
+  padding: 0.75rem 1rem;
   text-decoration: underline;
 }
 
