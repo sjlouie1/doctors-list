@@ -169,7 +169,7 @@ svg {
 }
 
 .doctor-photo {
-  border-radius: 50%;
+  border-radius: 49%;
   object-fit: cover;
   width: 90px;
   height: 90px;
@@ -179,6 +179,7 @@ svg {
   background-clip: content-box;
   background-color: #4da6cc;
 }
+
 
 .doc-list-specialties {
   display: flex;
