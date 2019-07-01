@@ -166,9 +166,13 @@ svg{
 .doctor-photo {
   border-radius: 50%;
   object-fit: cover;
-  width: 100px;
-  height: 100px;
+  width: 90px;
+  height: 90px;
   margin-right: 1.5rem;
+  border: 3px solid #4da6cc;
+  padding: 3px;
+  background-clip: content-box;
+  background-color: #4da6cc;
 }
 
 .doc-list-specialties {
