@@ -45,81 +45,89 @@ const DoctorsList = props => {
 
       <div className="list-container">
         {props.search.input === "" &&
-        props.completeList.map((doctor, i) => {
-          return (
-            <div
-              key={i}
-              className="doctor-card"
-              onClick={() => props.onClick(i)}
-            >
-              <br/>
-              <div>
-                <img
-                  className="doctor-photo"
-                  src={doctor.profile.image_url}
-                  alt={`${doctor.profile.first_name} ${doctor.profile.last_name}`}
-                />
-              </div>
-              <br/>
-              <div className="doc-description-container">
-                <div className="doc-description">
-                  <p className="titleText">{` ${doctor.profile.first_name} ${
-                    doctor.profile.last_name
+          props.completeList.map((doctor, i) => {
+            return (
+              <div
+                key={i}
+                className="doctor-card"
+                onClick={() => props.onClick(i)}
+              >
+                <br />
+                <div>
+                  <img
+                    className="doctor-photo"
+                    src={doctor.profile.image_url}
+                    alt={`${doctor.profile.first_name} ${
+                      doctor.profile.last_name
+                    }`}
+                  />
+                </div>
+                <br />
+                <div className="doc-description-container">
+                  <div className="doc-description">
+                    <p className="titleText">{` ${doctor.profile.first_name} ${
+                      doctor.profile.last_name
                     } ${doctor.profile.title}`}</p>
+                  </div>
+                  <div>
+                    {doctor.specialties.map((specialty, i) => {
+                      return (
+                        <div
+                          key={"doc-specialties-" + i}
+                          className="doc-list-specialty"
+                        >
+                          <span>{specialty.name}</span>
+                          <br />
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        {props.search.input !== "" &&
+          props.doctors.length > 0 &&
+          props.doctors.map((doctor, i) => {
+            return (
+              <div
+                key={i}
+                className="doctor-card"
+                onClick={() => props.onClick(i)}
+              >
+                <br />
+                <div>
+                  <img
+                    className="doctor-photo"
+                    src={doctor.profile.image_url}
+                    alt={`${doctor.profile.first_name} ${
+                      doctor.profile.last_name
+                    }`}
+                  />
                 </div>
                 <div>
-                  {doctor.specialties.map((specialty, i) => {
-                    return (
-                      <div key={'doc-specialties-' + i} className="doc-list-specialty">
-                        <span>{specialty.name}</span>
-                        <br/>
-                      </div>
-                    );
-                  })}
+                  <div className="doc-name">
+                    <p className="titleText">{` ${doctor.profile.first_name} ${
+                      doctor.profile.last_name
+                    } ${doctor.profile.title}`}</p>
+                  </div>
+                  <br />
+                  <div>
+                    {/* <FontAwesomeIcon icon={"briefcase-medical"}/> */}
+                    {doctor.specialties.map((specialty, i) => {
+                      return (
+                        <div key={"doc-specialty-" + i} >
+                          <span>{specialty.name}</span>
+                        </div>
+                      );
+                    })}
+                  </div>
                 </div>
+
+                <br />
               </div>
-            </div>
-          );
-        })}
-        {props.search.input !== "" &&
-        props.doctors.length > 0 &&
-        props.doctors.map((doctor, i) => {
-          return (
-            <div
-              key={i}
-              className="doctor-card"
-              onClick={() => props.onClick(i)}
-            >
-              <br/>
-              <div>
-                <img
-                  className="doctor-photo"
-                  src={doctor.profile.image_url}
-                  alt={`${doctor.profile.first_name} ${doctor.profile.last_name}`}
-                />
-              </div>
-              <br/>
-              <div className="doc-name">
-                <p className="titleText">{` ${doctor.profile.first_name} ${
-                  doctor.profile.last_name
-                  } ${doctor.profile.title}`}</p>
-              </div>
-              <br/>
-              <div>
-                <FontAwesomeIcon icon={"briefcase-medical"}/>
-                {doctor.specialties.map((specialty, i) => {
-                  return (
-                    <div key={'doc-specialty-' + i} className="titleText">
-                      <span>{specialty.name}</span>
-                      <br/>
-                    </div>
-                  );
-                })}
-              </div>
-              <br/>
-            </div>
-          );
-        })}
+            );
+          })}
         {props.search.input !== "" && props.doctors.length === 0 && (
           <h1>No doctors matching the current criteria...</h1>
         )}
