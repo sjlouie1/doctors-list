@@ -21,6 +21,9 @@ body {
   width: 100%;
 }
 
+svg{
+    margin-right: .3rem;
+}
 /* SIDE MENU */
 .menu {
   position: sticky;
@@ -153,8 +156,11 @@ body {
 }
 
 .titleText {
-  display: inline;
+  display: block;
   text-align: center;
+  font-weight: bold;
+  font-size: .9rem;
+  padding-bottom: 0.1rem;
 }
 
 .doctor-photo {
@@ -176,6 +182,7 @@ body {
 
 .doc-list-specialty {
   display: flex;
+  padding: .2rem 0;
 }
 
 /* DOCTOR PROFILE MODAL*/
