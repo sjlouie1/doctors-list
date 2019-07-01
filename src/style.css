@@ -46,6 +46,7 @@ a {
   .menu-header img {
     height: 85px;
     margin-right: 10px;
+    margin-left: 7px;
   }
 
   .desktop-caption {
@@ -411,6 +412,7 @@ a {
     text-indent: 6px;
     width: 190px;
     margin: 0 5px;
+    height: 23px;
   }
 
   #select-menu {
@@ -418,6 +420,7 @@ a {
     -moz-border-radius: 6px;
     border-radius: 6px;
     margin: 0 5px;
+    height: 26px;
   }
 
   #radio-container {
