@@ -8,7 +8,7 @@ const DoctorsList = props => {
     <div id="doctors-list-container">
       <div className="input-container">
         <div className="inner-input-container">
-          <div className="mobile-input-1">
+          <div className="input-non-radio-container">
             <input
               id="input-bar"
               name="input"

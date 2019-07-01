@@ -96,7 +96,7 @@ a {
     width: 100%;
   }
 
-  .mobile-input-1 {
+  .input-non-radio-container {
     display: flex;
     margin: auto;
     height: 30px;
@@ -631,4 +631,3 @@ a {
     margin: .1rem 0;
   }
 }
-
