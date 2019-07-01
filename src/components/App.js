@@ -171,8 +171,9 @@ class App extends Component {
           this.state.doctor &&
           <div>
             <Tooltip
+              place="bottom"
               id="profile-bio"
-              effect="solid"
+              effect="float"
               globalEventOff="click"
               className="profile-tooltip-click"
             >
@@ -181,8 +182,9 @@ class App extends Component {
               </div>
             </Tooltip>
             <Tooltip
+              place="left"
               id="profile-insurance"
-              effect="solid"
+              effect="float"
               globalEventOff="click"
               className="profile-tooltip-click"
             >

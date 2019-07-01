@@ -81,7 +81,6 @@ const DoctorProfile = props => {
                         : "Not accepting new patients"}
                     </span>
                 </div>
-                <div className="insurances">
                   <div className="doc-details">
                     <div className="profile-icons">
                       <FontAwesomeIcon
@@ -91,7 +90,6 @@ const DoctorProfile = props => {
                        data-event="click focus"
                        className="doc-details-txt profile-tooltip">Accepted Insurance</a>
                   </div>
-                </div>
                 <div
                   className="selected-doc-location doc-details"
                 >
