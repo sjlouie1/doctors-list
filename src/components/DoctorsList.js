@@ -120,7 +120,7 @@ const DoctorsList = props => {
             );
           })}
         {props.search.input !== "" && props.doctors.length === 0 && (
-          <h1>No doctors matching the criteria of "{props.search.type}"</h1>
+          <h1>No doctors matching the current criteria...</h1>
         )}
       </div>
     </div>
