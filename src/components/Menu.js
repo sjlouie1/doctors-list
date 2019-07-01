@@ -1,29 +1,19 @@
 import React, { Component } from "react";
-import logo from "../assets/logo.svg"
+import logo from "../assets/logo.png";
 
-const Menu = props => {
-  const categories = [
-    "Dashboard",
-    "Appointments",
-    "Calendar",
-    "Doctor Search",
-    "Payments",
-    "Messages",
-    "Settings"
-  ];
-
+const Menu = () => {
   return (
     <div className="menu">
-      <div className="patient-info">
-        <img src={logo} alt="Doc Fusion logo"/>
-        <h3 id="nav-title">online</h3>
-      </div>
-      <div className="nav-categories">
-        {categories.map((category, i) =>
-          <div className={props.active === category ? "nav-category-active" : "nav-category"} key={"sidebar-" + i}>
-            {category}
-          </div>)
-        }
+      <div className="info">
+        <img src={logo} alt="Doc Fusion logo" />
+        <p className="info-txt">
+          Welcome to Doc Fusion, your ultimate resource for finding doctors in
+          your area that best suit your medical needs.
+          <br />
+          <br />
+          Click on a doctor's card to view their details. You may also filter doctors by their name, speciality, or gender using the search bar
+          at the top of this page.
+        </p>
       </div>
     </div>
   );
