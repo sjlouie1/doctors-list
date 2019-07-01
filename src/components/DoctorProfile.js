@@ -1,8 +1,6 @@
 import React from "react";
-import { css } from "styled-components";
 import Modal from "react-responsive-modal";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Tooltip from "react-simple-tooltip";
 import SimilarDoctors from "./SimilarDoctors";
 
 const DoctorProfile = props => {
@@ -42,22 +40,15 @@ const DoctorProfile = props => {
                   )}
                 </div>
                 <br/>
-                <div>
-                  <Tooltip
-                    content={props.selectedDoctor.profile.bio}
-                    customCss={css`
-                        white-space: nowrap;
-                        display: flex;
-                      `}
-                  >
-                    <div className="doc-bio doc-details">
-                      <div className="profile-icons">
-                        <FontAwesomeIcon
-                          icon={"address-card"}/>
-                      </div>
-                      <span className="doc-details-txt">Bio</span>
-                    </div>
-                  </Tooltip>
+
+                <div className="doc-bio doc-details">
+                  <div className="profile-icons">
+                    <FontAwesomeIcon
+                      icon={"address-card"}/>
+                  </div>
+                  <a data-tip data-for="profile-bio"
+                     data-event="click focus"
+                     className="doc-details-txt profile-tooltip">Bio</a>
                 </div>
 
                 {props.selectedDoctor.practices[0].website ? (
@@ -91,25 +82,15 @@ const DoctorProfile = props => {
                     </span>
                 </div>
                 <div className="insurances">
-                  <Tooltip
-                    content={props.selectedDoctor.insurances.map(
-                      plan => {
-                        return plan.insurance_plan.name;
-                      }
-                    )}
-                    customCss={css`
-                        white-space: nowrap;
-                        display: flex;
-                      `}
-                  >
-                    <div className="doc-details">
-                      <div className="profile-icons">
-                        <FontAwesomeIcon
-                          icon={"address-card"}/>
-                      </div>
-                      <span className="doc-details-txt">Accepted Insurance</span>
+                  <div className="doc-details">
+                    <div className="profile-icons">
+                      <FontAwesomeIcon
+                        icon={"address-card"}/>
                     </div>
-                  </Tooltip>
+                    <a data-tip data-for="profile-insurance"
+                       data-event="click focus"
+                       className="doc-details-txt profile-tooltip">Accepted Insurance</a>
+                  </div>
                 </div>
                 <div
                   className="selected-doc-location doc-details"
