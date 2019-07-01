@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import logo from "../assets/logo.svg"
 
-const Menu = () => {
+const Menu = props => {
   const categories = [
     "Dashboard",
     "Appointments",
@@ -15,21 +15,15 @@ const Menu = () => {
   return (
     <div className="menu">
       <div className="patient-info">
-    <img src={logo} alt="Doc Fusion logo"/>
-        <p>online</p>
+        <img src={logo} alt="Doc Fusion logo"/>
+        <h3 id="nav-title">online</h3>
       </div>
-      <div className="categories">
-        {categories.map((category, i) => {
-          return category === "Doctor Search" ? (
-            <div className="category" id="selected" key={"sidebar-" + i}>
-              {category}
-            </div>
-          ) : (
-            <div className="category" key={"sidebar-" + i}>
-              {category}{" "}
-            </div>
-          );
-        })}
+      <div className="nav-categories">
+        {categories.map((category, i) =>
+          <div className={props.active === category ? "nav-category-active" : "nav-category"} key={"sidebar-" + i}>
+            {category}
+          </div>)
+        }
       </div>
     </div>
   );
