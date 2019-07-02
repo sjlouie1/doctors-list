@@ -25,7 +25,8 @@ class App extends Component {
         type: 'Name',
         gender: 'Both'
       },
-      active: 'Doctor Search'
+      active: 'Doctor Search',
+      error: null
     };
   }
 
@@ -104,7 +105,10 @@ class App extends Component {
         const completeList = [...filtered];
         this.setState({ doctors: filtered, completeList, isLoading: false });
       })
-      .catch(err => console.log(err));
+      .catch(err => {
+        this.setState({ error: err, isLoading: false },
+          () => console.log(err));
+      });
   };
 
   componentDidMount() {
@@ -121,11 +125,14 @@ class App extends Component {
         }, () => {
           this.fetchData(this.state.url);
         })
+      }, err => {
+        if (err) {
+          this.fetchData(resource_url);
+        }
       });
     } else {
       this.fetchData(resource_url);
     }
-
   }
 
   render() {
@@ -147,6 +154,14 @@ class App extends Component {
         }
         {/* only renders Loading component if isLoading is true */}
         {/*className main will only load if isLoading is false */}
+        {
+          this.state.error &&
+            <div className="error-container">
+              <h2>An error has occurred</h2>
+              <h4>Please enable GeoLocation services</h4>
+              <p>{JSON.stringify(this.state.error)}</p>
+            </div>
+        }
         {
           !this.state.isLoading &&
           <div className="main">

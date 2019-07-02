@@ -59,6 +59,24 @@ a {
     margin: 20px 5px 0 0;
   }
 
+  /* ERROR */
+  .error-container {
+    display: flex;
+    width: 100%;
+  }
+
+  .error-container h2 {
+    margin: auto;
+  }
+
+  .error-container h4 {
+    margin: auto;
+  }
+
+  .error-container p {
+    margin: auto;
+  }
+
   /* LOADER */
   .loader {
     margin: 50% auto 0;
@@ -372,7 +390,7 @@ a {
 
   .info-txt {
     font-size: 1.2rem;
-    line-height: 1.4rem
+    line-height: 1.4rem;
   }
 
 
@@ -381,10 +399,28 @@ a {
     margin: auto;
   }
 
+  /* ERROR */
+  .error-container {
+    display: flex;
+    width: 100%;
+  }
+
+  .error-container h2 {
+    margin: auto;
+  }
+
+  .error-container h4 {
+    margin: auto;
+  }
+
+  .error-container p {
+    margin: auto;
+  }
+
   /* MAIN */
   .main {
     display: flex;
-    width: 100%
+    width: 100%;
   }
 
   /* DOCTORS LIST */
